@@ -1,0 +1,13 @@
+--changed do to Do to make it a global variable 
+function Do_sth_with_PlayerParty(playerId, membername)
+
+--changed player to Player to make it a global variable 
+  Player = Player(playerId)
+  local party = Player:getParty()
+--changed k to _ because the k variable wasn't being used in the for loop 
+  for _, v in pairs(party:getMembers()) do
+    if v == Player(membername) then
+      party:removeMember(Player(membername))
+    end
+  end
+end
