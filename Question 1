@@ -1,0 +1,13 @@
+--created the local variable addEvent so it can be called later in the code
+local addEvent
+
+local function releaseStorage(player)
+  player:setStorageValue(1000, -1)
+end
+--changed onLogout to OnLogout to create a globial variable
+function OnLogout(player)
+  if player:getStorageValue(1000) == 1 then
+  addEvent(releaseStorage, 1000, player)
+  end
+  return true
+end
